@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :guides
-  has_many :comments, as: :commentable
+  #user is not invovled in polymorphic association
+  has_many :comments
   has_many :topics
 
   # Include default devise modules. Others available are:
