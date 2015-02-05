@@ -5,6 +5,7 @@ class ChampionsController < ApplicationController
 
   def show
     @champion = Champion.find(params[:id])
-    @guides = @Guide.posts
+    @guides = @champion.guides
+    @guide = Guide.find(params[:id])
   end
 end
