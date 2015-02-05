@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
-  get 'topics/index'
 
-  get 'topics/show'
-
-  get 'guides/index'
-
-  get 'guides/show'
-
-  get 'champions/index'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -15,7 +7,13 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  resources :champions
+  get 'homepage/index'
+
+  resources :champions do
+    resources :guides
+  end
+
+  resources :topic
 
 
   # Example of regular route:
