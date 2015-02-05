@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20150203222649) do
 
   create_table "guides", force: true do |t|
     t.string   "title"
+    t.text     "champion_advice"
+    t.text     "item_build"
     t.integer  "champion_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -40,6 +42,8 @@ ActiveRecord::Schema.define(version: 20150203222649) do
   end
 
   create_table "topics", force: true do |t|
+    t.string   "title"
+    t.string   "body"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
