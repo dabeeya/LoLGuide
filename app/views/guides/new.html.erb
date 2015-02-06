@@ -1,0 +1,20 @@
+<div class="container">
+  <%= form_for([@champion,@guide]) do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :champion_advice %><br>
+      <%= f.text_field :champion_advice %>
+    </p>
+    <p>
+      <%= f.label :item_build %><br>
+      <%= f.text_field :item_build %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+
+  <% end %>
+</div>

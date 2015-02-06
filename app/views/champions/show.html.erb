@@ -2,6 +2,10 @@
   <% @guides.each do |guide| %>
     <%= @champion.id %>
     <%= @champion.name %>
-    <%= link_to guide.title, champion_guide_path(@champion,@guide) %><br>
+    <%= guide.id %>
+    <%= link_to guide.title, champion_guide_path(@champion,guide.id) %><br>
   <% end %>
+
+  <%= link_to "Create New Guide", new_champion_guide_path(@champion), class: 'btn btn-primary btn-xs' %>
 </div>
+
