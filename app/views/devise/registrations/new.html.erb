@@ -4,15 +4,27 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= f.email_field :email, autofocus: true %>
+  </div>
 
   <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
 
   <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" value="">
+      Option one is this and that&mdash;be sure to include why it's great
+    </label>
+  </div>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
