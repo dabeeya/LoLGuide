@@ -3,4 +3,8 @@ This will be a guide to the game League of Legends
 
 Technologies:
 Rails
+Devise (users)
+Paperclip (pics)
+act_as_votable
+LoL API (https://github.com/francois-blanchard/riot_lol_api)
 TBD
