@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'pages/contact'
+
+  get 'pages/about'
+
+  get 'pages/faq'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,6 +20,12 @@ Rails.application.routes.draw do
   end
 
   resources :topic
+
+  %w(contact about faq).each do |page|
+    get page => "pages##{page}"
+  end
+
+
 
 
   # Example of regular route:
