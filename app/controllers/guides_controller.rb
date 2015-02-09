@@ -2,19 +2,25 @@ class GuidesController < ApplicationController
   def index
   end
 
-  def show
+  def show #works
     @champion = Champion.find(params[:champion_id])
     @guide = @champion.guides.find(params[:id])
   end
 
-  def new
+  def new #works
     @champion = Champion.find(params[:champion_id])
     @guide = @champion.guides.new
   end
 
-  def create
+  def edit
+    @champion = Champion.find(params[:champion_id])
+    @guide = @champion.guides.find(params[:id])
+  end
+
+  def create #works
     @champion = Champion.find(params[:champion_id])
     @guide = @champion.guides.new(guide_params)
+    @guide.user_id = current_user[:id]
     if @guide.save
       redirect_to champion_guide_path(@champion,@guide)
     else
@@ -22,32 +28,27 @@ class GuidesController < ApplicationController
     end
   end
 
-  # def edit
-  #   @category = Category.find(params[:category_id])
-  #   @post = @category.posts.find(params[:id])
-  # end
 
-  # def update
-  #   @category = Category.find(params[:id])
-  #   @post = @category.posts.find(params[:id])
-  #     # if @post.update_attributes(params[:post])
+  def update
+    @champion = Champion.find(params[:champion_id])
+    @guide = @champion.guides.find(params[:id])
+      if @guide.update(guide_params)
+        redirect_to champion_guide_path(@champion,@guide)
+      else
+        render 'edit'
+      end
+  end
 
-  #     # else
-  #     #   render 'edit'
-  #     # end
-  # end
-
-  # def destroy
-  #   @category = Category.find(params[:id])
-  #   @post = @category.posts.find(params[:id])
-  #   @post.destroy
-  #   redirect_to @project, :notice => "Task Deleted"
-  # end
+  def destroy #works
+    @champion = Champion.find(params[:champion_id])
+    @guide = @champion.guides.find(params[:id])
+    @guide.destroy
+    redirect_to champion_path(@champion)
+  end
 
   private
   def guide_params
     params.require(:guide).permit(:title, :champion_advice, :item_build)
   end
-
 end
 

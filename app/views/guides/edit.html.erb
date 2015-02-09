@@ -1,0 +1,24 @@
+<div class="container">
+  <%= form_for :guide, url: champion_guide_path(@champion, @guide), method: :patch do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :champion_advice %><br>
+      <%= f.text_area :champion_advice %>
+    </p>
+
+    <p>
+      <%= f.label :item_build %><br>
+      <%= f.text_area :item_build %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Back', champion_guide_path(@champion,@guide) %>
+</div>

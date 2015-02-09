@@ -4,6 +4,15 @@
   <h3>Item Build: </h3><%= @guide.item_build %>
   <h4>CHAMP ID <%= @guide.champion_id %>
   <h4>GUIDE ID <%= @guide.id %> </h4>
-  <%= link_to "View All Guides",champion_path(@champion), class: 'btn btn-primary btn-xs' %>
-</div>
+  <h4>user ID <%= @guide.user_id %> </h4>
 
+  <%= link_to "View All Guides",champion_path(@champion), class: 'btn btn-primary btn-xs' %>
+
+  <% if current_user.id == @guide.user_id %>
+    <%= link_to "Delete", champion_guide_path(@champion, @guide), :confirm => "Are you sure?", :method => :delete, class: 'btn btn-primary btn-xs' %>
+    <%= link_to "Edit", edit_champion_guide_path(@champion, @guide), class: 'btn btn-primary btn-xs' %>
+  <% else %>
+    <%= "you cant edit or delete, not the owwner" %>
+  <% end %>
+
+</div>
