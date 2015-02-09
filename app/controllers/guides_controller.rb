@@ -1,5 +1,6 @@
 class GuidesController < ApplicationController
   def index
+    #wont really need any info bc it would be weird to see all guides for all champions in a single page, too much
   end
 
   def show #works
@@ -12,7 +13,7 @@ class GuidesController < ApplicationController
     @guide = @champion.guides.new
   end
 
-  def edit
+  def edit #works
     @champion = Champion.find(params[:champion_id])
     @guide = @champion.guides.find(params[:id])
   end
@@ -29,7 +30,7 @@ class GuidesController < ApplicationController
   end
 
 
-  def update
+  def update #works
     @champion = Champion.find(params[:champion_id])
     @guide = @champion.guides.find(params[:id])
       if @guide.update(guide_params)
