@@ -17,3 +17,7 @@ champnames.each do |x|
   end
 end
 
+
+25.times do
+  Topic.create(title: Faker::Commerce.product_name, body: Faker::Lorem.paragraph)
+end

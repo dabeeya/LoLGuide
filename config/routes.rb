@@ -11,19 +11,20 @@ Rails.application.routes.draw do
 
   get 'pages/faq'
 
+  get 'homepage/index'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  get 'homepage/index'
 
   resources :champions do
     resources :guides
   end
 
-  resources :topic
+  resources :topics
 
   %w(contact about faq).each do |page|
     get page => "pages##{page}"

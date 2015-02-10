@@ -1,2 +1,11 @@
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
+<div class="container">
+  <h2> Recent Discussions </h2><br>
+  <% @topics.each do |x| %>
+    <%= link_to x.title, topic_path(x.id) %><br>
+  <% end %>
+</div>
+
+<%= link_to "create new", new_topic_path, class: 'btn btn-primary btn-xs' %><br>
+
+SHOW ALL THE TOPICS
+

@@ -1,2 +1,11 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+<div class="container">
+  Title: <%= @topic.title %><br>
+  <%= @topic.body %>
+
+  <% if current_user.id == @topic.user_id %>
+    <%= link_to "delete", topic_path(@topic), :confirm => "Are you sure?", :method => :delete, class: 'btn btn-primary btn-xs' %>
+  <% else %>
+    <%= "you cant do anything" %>
+  <% end %>
+
+</div>
